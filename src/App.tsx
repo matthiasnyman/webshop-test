@@ -14,18 +14,13 @@ const App = () => {
 
   React.useEffect(() => {
     axios
-      .get('https://fakestoreapi.com/products')
+      .all([
+        axios.get('https://fakestoreapi.com/products'),
+        axios.get('https://fakestoreapi.com/products/categories'),
+      ])
       .then((res: any) => {
-        setProducts(res.data);
-      })
-      .catch((err: any) => {
-        console.error(err);
-      });
-
-    axios
-      .get('https://fakestoreapi.com/products/categories')
-      .then((res: any) => {
-        setProductOptions(res.data);
+        setProducts(res[0].data);
+        setProductOptions(res[1].data);
       })
       .catch((err: any) => {
         console.error(err);

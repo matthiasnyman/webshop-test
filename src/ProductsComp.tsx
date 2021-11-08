@@ -23,8 +23,6 @@ interface ProductsType {
   setCategory: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const ratingOptions = {};
-
 const ProductsComp = (props: ProductsType) => {
   const { Products, productOptions, setSelectedItem, category, setCategory } =
     props;
