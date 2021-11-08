@@ -39,12 +39,13 @@ const ProductsComp = (props: ProductsType) => {
     if (category && rating) {
       setFilteredProducts(
         Products.filter(
-          (item) => item.category === category && item.rating.rate >= rating
+          (item) =>
+            item.category === category && Math.round(item.rating.rate) >= rating
         )
       );
     } else {
       setFilteredProducts(
-        Products.filter((item) => item.rating.rate >= rating)
+        Products.filter((item) => Math.round(item.rating.rate) >= rating)
       );
     }
   }, [category, Products, rating]);

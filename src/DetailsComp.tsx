@@ -25,10 +25,12 @@ const DetailsComp = (props: DetailsType) => {
       <div className="">
         <img className="product-image" src={image} alt="Product" />
         <p>{description}</p>
-        <p>
-          pris: <b>{price}</b> kr
-        </p>
-        <Button>köp</Button>
+        <div className="flex">
+          <p>
+            pris: <b>{price}</b> kr
+          </p>
+          <Button id="contained">köp</Button>
+        </div>
       </div>
     </Container>
   );
